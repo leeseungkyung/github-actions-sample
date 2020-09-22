@@ -10,7 +10,7 @@ jobs:
       run:
         working-directory: app
     strategy:
-      max-parallel: 1
+      max-parallel: 1 # 몇개를 동시작업?
       matrix:
         python-version: [3.8]
     services:
@@ -37,9 +37,11 @@ jobs:
       run: python manage.py test
     - name: Build docker image
       env:
-        IMAGE_TAG: ${{ github.sha }}
+        IMAGE_TAG: ${{ github.sha }} #해시값
       run: |
         docker build \
             --build-arg BUILD_COMMIT=$IMAGE_TAG \
-            -t github-actions-sample:$IMAGE_TAG .
+            -t github-actions-sample:$IMAGE_TAG . 
+             
+     #t 다음 : 이미지 이름 
 
