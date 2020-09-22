@@ -47,5 +47,5 @@ jobs:
       run: |
         docker build \
             --build-arg BUILD_COMMIT=$IMAGE_TAG \
-            -t ${{ secrets.DOCKERHUB_USERNAME }}/github-actions-sample:$IMAGE_TAG .
+            -t github-actions-sample:$IMAGE_TAG .
 
